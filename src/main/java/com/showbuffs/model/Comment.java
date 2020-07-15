@@ -1,8 +1,5 @@
 package com.showbuffs.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -10,8 +7,6 @@ import javax.persistence.*;
  * Created On 7/11/20
  * Project Name ShowBuffs
  **/
-@Setter
-@Getter
 @Entity
 public class Comment {
     @Column
@@ -19,4 +14,22 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String comment;
+
+    public Comment() { }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
