@@ -12,4 +12,6 @@ public interface IUserService extends UserDetailsService {
     Optional<User> signin(Profile profile);
     User updateProfile(User profile);
     boolean deleteProfile(User profile);
+    void followUser(String id, User user);
+    void unFollowUser(String id, User user);
 }

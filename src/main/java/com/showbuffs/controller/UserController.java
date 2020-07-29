@@ -59,10 +59,22 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/deleteProfile", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteProfile", method = RequestMethod.DELETE)
     public ResponseEntity deleteProfile(@RequestBody User profile) {
         boolean deleted = userService.deleteProfile(profile);
         return deleted ? ResponseEntity.status(200).build() :
                 ResponseEntity.status(400).body("Unable to perform delete");
+    }
+
+    @RequestMapping(value = "/followUser", method = RequestMethod.POST)
+    public ResponseEntity followUser(@RequestParam(name = "id") String id, @RequestBody User user) {
+        userService.followUser(id, user);
+        return ResponseEntity.status(200).build();
+    }
+
+    @RequestMapping(value = "/unFollowUser", method = RequestMethod.POST)
+    public ResponseEntity unFollowUser(@RequestParam(name = "id") String id, @RequestBody User user) {
+        userService.unFollowUser(id, user);
+        return ResponseEntity.status(200).build();
     }
 }

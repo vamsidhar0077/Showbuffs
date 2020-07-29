@@ -1,6 +1,7 @@
 package com.showbuffs.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class Post {
     Tvshow show;
     @OneToMany
     @JoinColumn(name = "post_id")
-    List<Comment> comments;
+    List<Comment> comments = new ArrayList<>();
 
     public Post() { }
 

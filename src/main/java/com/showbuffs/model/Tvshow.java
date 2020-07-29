@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Tvshow {
     String crew;
     String screeningAt;
     @OneToMany(mappedBy = "show")
-    List<Post> reviews;
+    List<Post> reviews = new ArrayList<>();
 
     public Tvshow(){}
 
